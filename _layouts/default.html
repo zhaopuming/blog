@@ -2,10 +2,9 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <base href="/kotlin-docs-cn/" />
+    <base href="/blog/" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="http://kotlin-demo.jetbrains.com/static/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
@@ -14,40 +13,44 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Kotlin Docs zh_CN</title>
+    <title>zhaopuming</title>
   </head>
 
   <body>
     <header>
-      <div class="inner">
-          <h1><a href="" style="color:white;">Kotlin Docs</a></h1>
-        <h2></h2>
-        <a href="https://github.com/zhaopuming/docs" class="button"><small>View project on</small>GitHub</a>
-      </div>
+    <div class="inner">
+      {% if page.is_index %}
+      <h1><a href="" style="color:white;">&gt; Regardez le ciel. &lt;</a></h1>
+      {% else %}
+      <h2><a href="" style="color:#8CC;">&gt; Regardez le ciel. &lt;</a></h2>
+      <h1>{{ page.title }}</h1>
+      {% endif %}
+      <a href="https://github.com/zhaopuming/docs" class="button"><small>View project on</small>GitHub</a>
+    </div>
     </header>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          {{ content }}
+        {{ content }}
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/zhaopuming/docs/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/zhaopuming/docs/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+        <!--
+        <a href="https://github.com/zhaopuming/docs/zipball/master" class="button">
+          <small>Download</small>
+          .zip file
+        </a>
+        <a href="https://github.com/zhaopuming/docs/tarball/master" class="button">
+          <small>Download</small>
+          .tar.gz file
+        </a>
+        -->
 
-          查看 <a href="{{page.original-doc}}" class="link">英文原文</a>
+        <p></p>
+        <p class="repo-owner">The <a href="https://github.com/zhaopuming/kotlin-docs-cn">translation</a> is maintained by <a href="https://github.com/zhaopuming">zhaopuming</a>.</p>
 
-          <p></p>
-          <p class="repo-owner">The <a href="https://github.com/zhaopuming/kotlin-docs-cn">translation</a> is maintained by <a href="https://github.com/zhaopuming">zhaopuming</a>.</p>
-
-          <p>This page was created using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        <p>This page was created using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
         </aside>
       </div>
     </div>
