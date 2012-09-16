@@ -1,14 +1,16 @@
 ---
 layout: post
 title: Ubuntu下使用PostgreSQL
+tags: D
 ---
 
 ## 概述
 
 PostgreSQL相比与MySQL有不少优点，所以花些精力来学习使用，是很值得的。
 除了Administration方面有比较大的区别，两者其实很相似。
-这里介绍一下Ubuntu下我自己使用PostgreSQL的经验。
+这里介绍一下Ubuntu下我自己使用PostgreSQL的经验。 
 
+<p class="title" id="installation"></p>
 
 ## 安装
 
@@ -75,6 +77,8 @@ visus
 {% highlight bash %}
 visus@visus:~$ psql
 {% endhighlight %}
+
+<a id="create-db"><!----></a>
 
 ## 建立数据库
 
