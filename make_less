@@ -1,0 +1,1 @@
+for f in less/*.less; do lessc $f > css/`basename $f .less`.css; done

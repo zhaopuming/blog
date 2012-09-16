@@ -18,8 +18,9 @@ PostgreSQL相比与MySQL有不少优点，所以花些精力来学习使用，�
 * PostgreSQL 9.1
 
 Ubuntu下可以直接使用apt-get安装PostgreSQL，非常方便：
-
-> sudo apt-get install postgresql
+{% highlight bash %}
+sudo apt-get install postgresql
+{% endhighlight %}
 
 即可。
 
@@ -34,7 +35,9 @@ Postgre用户系统是区分数据库用户和Linux用户的，所以需要在�
 
 首先用postgre用户登录psql客户端：
 
-> sudo -u postgre psql
+{% highlight bash %}
+sudo -u postgre psql
+{% endhighlight %}
 
 注意postgre无密码，因此不能直接通过su转换过去。
 （你也可以使用`passwd`命令改变postgre用户属性，不过这个不推荐）
@@ -42,26 +45,36 @@ Postgre用户系统是区分数据库用户和Linux用户的，所以需要在�
 登录进去后是一个PostgreSQL自己的交互式命令行界面
 
 可以输入help查看有哪些命令。
-> postgres=# help
+
+{% highlight bash %}
+postgres=# help
+{% endhighlight %}
 
 下面建立角色visus, 在psql中键入：
 
-> CREATE ROLE visus LOGIN;
+{% highlight sql %}
+CREATE ROLE visus LOGIN;
+{% endhighlight %}
 
 查看用户(角色)是否建好：
 
-> SELECT rolname FROM pg_roles;
+{% highlight sql %}
+SELECT rolname FROM pg_roles;
+{% endhighlight %} <!--_-->
 
 如果结果中出现visus，则已经建好：
+{% highlight text %}
+rolname
+----------
+postgres
+visus
+{% endhighlight %}
 
-    rolname
-    ----------
-    postgres
-    visus
+这时候可以退出到系统命令行，直接使用visus登录了：
 
-这时候可以推导系统命令行，直接使用visus登录了：
-
-> psql
+{% highlight bash %}
+visus@visus:~$ psql
+{% endhighlight %}
 
 ## 建立数据库
 
@@ -71,6 +84,7 @@ TODO
 ## 参考链接
 
 TODO
+
 
 
 

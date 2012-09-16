@@ -1,0 +1,165 @@
+// LESS
+
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+#header {
+  .rounded-corners;
+}
+
+#footer {
+  .rounded-corners(10px);
+}
+
+.round-header (@radius: 5px) {
+  border: 1px solid @border-color;
+  border-top-left-radius: @radius;
+  -webkit-border-top-left-radius: @radius;
+  -moz-border-radius-topleft: @radius;
+  border-top-right-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-radius-topright: @radius;
+  -webkit-background-clip: padding-box;
+}
+
+.round-body (@radius: 5px) {
+  border: 1px solid @border-color;
+  border-top: none;
+  border-bottom-left-radius: @radius;
+  -webkit-border-bottom-left-radius: @radius;
+  -moz-border-radius-bottomleft: @radius;
+  border-bottom-right-radius: @radius;
+  -webkit-border-bottom-right-radius: @radius;
+  -moz-border-radius-bottomright: @radius;
+  -webkit-background-clip: padding-box;
+}
+
+.gradient-background (@color_start: #FAFAFA, @color: #E9E9E9) {
+  background: @color;
+  background:-moz-linear-gradient(top, @color_start 0%, @color 100%); /* FF3.6+ */
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,@color_start), color-stop(100%,@color)); /* Chrome,Safari4+ */
+  background:-webkit-linear-gradient(top, @color_start 0%,@color 100%); /* Chrome10+,Safari5.1+ */
+  background:-o-linear-gradient(top, @color_start 0%,@color 100%); /* Opera11.10+ */
+  background:-ms-linear-gradient(top, @color_start 0%,@color 100%); /* IE10+ */
+  background:linear-gradient(top, @color_start 0%,@color 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{color_start}', endColorstr='@{color}');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='@{color_start}', endColorstr='@{color}')";
+}
+
+/**
+ *
+ */
+
+@border-color: #D5D5D5;
+@color: #555;
+
+.widget {
+  position: relative;
+  clear: both;
+  width: auto;
+  margin-bottom: 2em;
+  overflow: hidden;
+
+  .widget-header {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    .gradient-background(#FAFAFA, #E9E9E9);
+    .round-header(4px);
+
+    [class^="icon-"],[class*=" icon-"] {
+      display: inline-block;
+      margin-left: 13px;
+      margin-right: -2px;
+      font-size: 20px;
+      color: @color;
+      vertical-align: middle;
+    }
+
+    h3 {
+      position: relative;
+      top: 2px;
+      left: 9px;
+      display: inline-block;
+      margin-right: 3em;
+      font-size: 14px;
+      font-weight: 800;
+      color: @color;
+      line-height: 18px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 5);
+    }
+  }
+
+  .widget-body {
+    .round-body(4px);
+    padding: 20px 15px 15px;
+    background: #FFF;
+    display: table;
+
+    .post-items {
+      margin: 1em 0 0;
+
+      li {
+        display: table;
+        padding: 0 2em 0 1.5em;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        border-bottom: 1px dotted #CCC;
+
+        .post-item-detail {
+          display: table-cell;
+          width: 90%;
+
+          a {
+            font-weight: bold;
+            font-size: 20px;
+          }
+
+          p {
+            color: #777;
+            margin-bottom: 0;
+            margin-top: 4px;
+            font-size: 12px;
+          }
+        }
+
+        .post-item-date {
+          width: 75px;
+          vertical-align: middle;
+          text-align: right;
+          display: table-cell;
+
+          .post-item-day {
+            display: block;
+            margin-bottom: .25em;
+            font-size: 24px;
+            color: #888;
+          }
+
+          .post-item-month {
+            display: block;
+            padding-right: 1px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+          }
+        }
+
+      }
+      li:last-child {
+        padding-bottom: 0;
+        border: none;
+      }
+    }
+  }
+}
+
+.widget-nopad {
+  .widget-body {
+    padding: 0;
+  }
+}
+

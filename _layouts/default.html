@@ -5,7 +5,11 @@
     <base href="/">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen" />
+    <link rel="icon" type="image/x-icon" href="https://github.com/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/docs.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/visus.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
 
@@ -13,57 +17,48 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>zhaopuming</title>
+    <title>zhaopuming's blog</title>
   </head>
 
   <body>
-    <header>
-    <div class="inner">
-      {% if page.is_index %}
-      <h1><a href="" style="color:white;">&gt; Regardez le ciel. &lt;</a></h1>
-      {% else %}
-      <h2><a href="" style="color:#8CC;">&gt; Regardez le ciel. &lt;</a></h2>
-      <h1>{{ page.title }}</h1>
-      {% endif %}
-      <a href="https://github.com/zhaopuming/docs" class="button"><small>View project on</small>GitHub</a>
-    </div>
-    </header>
-
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-        {{ content }}
-        </section>
-
-        <aside id="sidebar">
-        <!--
-        <a href="https://github.com/zhaopuming/docs/zipball/master" class="button">
-          <small>Download</small>
-          .zip file
-        </a>
-        <a href="https://github.com/zhaopuming/docs/tarball/master" class="button">
-          <small>Download</small>
-          .tar.gz file
-        </a>
-        -->
-
-        <p></p>
-        <p class="repo-owner">The <a href="https://github.com/zhaopuming/kotlin-docs-cn">translation</a> is maintained by <a href="https://github.com/zhaopuming">zhaopuming</a>.</p>
-
-        <p>This page was created using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li> <a href="/">首页</a> </li>
+              <li> <a href="/blogs.html">博文</a> </li>
+              <li> <a href="/d.html">D语言</a> </li>
+              <li> <a href="/kotlin.html">Kotlin语言</a> </li>
+            </ul>
+            <ul class="nav pull-right">
+              <li>
+                <a rel="tooltip" href="https://github.com/zhaopuming" target="_blank">
+                  GitHub
+                  <i class="icon-white icon-share-alt"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  
+
+    <div class="container">
+      <div class="row">
+          {{ content }}
+      </div>
+    </div>
+
     <script type='text/javascript'>
-    (function() {
-        var c = document.createElement('script'); 
-        c.type = 'text/javascript';
-        c.async = true;
-        c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/47111';
-        var h = document.getElementsByTagName('script')[0];
-        h.parentNode.insertBefore(c, h);
-    })();
-    </script>
-  </body>
-</html>
+      (function() {
+       var c = document.createElement('script'); 
+       c.type = 'text/javascript';
+       c.async = true;
+       c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/47111';
+       var h = document.getElementsByTagName('script')[0];
+       h.parentNode.insertBefore(c, h);
+       })();
+     </script>
+   </body>
+ </html>
