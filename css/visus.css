@@ -137,3 +137,9 @@
 .widget-nopad .widget-body {
   padding: 0;
 }
+h2 {
+  color: #D44413;
+}
+hr {
+  border-top: 1px solid #EEE;
+}
