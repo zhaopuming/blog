@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 来自火星的D语言
+category: the-d-from-mars
+tags: [D]
 ---
 
 <p class="title" id="preface"></p>
