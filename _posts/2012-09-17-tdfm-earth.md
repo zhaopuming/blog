@@ -23,6 +23,21 @@ tags: [D]
 
 ## 函数
 
+第一步是函数。在D语言中，函数有两种形式：
+
+{% highlight d %}
+int sum(int a, int b)
+{
+  return a + b;
+}
+{% endhighlight %}
+
+另一种形式，Lambda:
+
+{% highlight d %}
+auto sum = (x, y) -> x + y;
+{% endhighlight %}
+
 
 <p class="title" id="advanced-topics"></p>
 ## 高级特性传送门
