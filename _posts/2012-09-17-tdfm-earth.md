@@ -23,8 +23,9 @@ tags: [D]
 
 ## 函数
 
-第一步是函数。在D语言中，函数有两种形式：
+第一步是函数。在D语言中，函数有4种形式：function, delegate, function literal，以及lambda，这里我们先只介绍两种：
 
+1. 普通函数
 {% highlight d %}
 int sum(int a, int b)
 {
@@ -32,12 +33,18 @@ int sum(int a, int b)
 }
 {% endhighlight %}
 
-另一种形式，Lambda:
+1. lambda:
 
 {% highlight d %}
-auto sum = (x, y) -> x + y;
+auto sum = (int x, int y) => x + y;
 {% endhighlight %}
 
+这两个函数定义基本是一致的(lambda实际上是一个delegate)，使用方法一样：
+{% highlight java %}
+sum(10, 20)
+{% endhighlight %}
+
+调用后得到30。
 
 <p class="title" id="advanced-topics"></p>
 ## 高级特性传送门
