@@ -11,7 +11,7 @@ origin-link: http://swanson.github.com/blog/2012/10/28/i-dont-have-time.html
 
 <br/>
 
-> # I Don't Have Time
+> # "I Don't Have Time"
 
 你有没有想要创造的东西？有没有想要创建的工程？有没有想要实现的目标？
 
@@ -24,7 +24,7 @@ origin-link: http://swanson.github.com/blog/2012/10/28/i-dont-have-time.html
 
 <br/>
 
->  我想写一本书，但是没有时间完成这么大的工作量
+>  “我想写一本书，但是没有时间完成这么大的工作量。”
 
 但是你能不能抽出一个小时的时间来列出目录呢？今天你可以写出500字来吗？
 何不在本周发送5封邮件，给可能感兴趣复查你的文章的博客呢？
@@ -35,7 +35,7 @@ origin-link: http://swanson.github.com/blog/2012/10/28/i-dont-have-time.html
 
 <br/>
 
->  我真的很想画画，但是什么都不懂，也没有时间学习
+>  “我真的很想画画，但是什么都不懂，也没有时间学习。”
 
 你有没有时间在今天画一幅草图呢？明天再画一幅呢？你能不能每周偷出一点时间来读一章[书](http://www.drawright.com/)？
 每个月留一点时间造访某个艺术馆？
@@ -46,7 +46,7 @@ origin-link: http://swanson.github.com/blog/2012/10/28/i-dont-have-time.html
 
 <br/>
 
->  我喜欢纪录片，也幻想过某一天制作属于自己的纪录片，但觉得永远都找不到时间。
+>  “我喜欢纪录片，也幻想过某一天制作属于自己的纪录片，但觉得永远都找不到时间。”
 
 那么你能不能就在今天发送一封邮件给采访对象？能不能在本周编辑一段采访？
 下个月能不能抽出一个周末录制一小段花絮？
