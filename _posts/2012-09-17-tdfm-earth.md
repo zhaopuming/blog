@@ -200,7 +200,7 @@ Java和Python中也有类似的语法。这种foreach比传统的for循环更简
 和其他语言不同的地方是，D语言的foreach语法还支持直接修改当前元素：
 {% highlight d %}
 string[] words = ["I", "love", "you"];
-// 第一个int型的参数是当前元素的数组下标
+// ref关键字表示该变量是引用类型，因此可以直接修改
 foreach (ref string word; words)
 {
   if (word == "love") {
@@ -223,5 +223,6 @@ for (int i = 0; i < array.length; ++i)
   writeln(array[i]);
 }
 {% endhighlight %}
+
 
 
