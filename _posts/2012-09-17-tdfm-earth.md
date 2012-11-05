@@ -132,6 +132,7 @@ D语言也是内置支持数组的。而且D语言中的数组使用起来远比
 
 {% highlight d %}
 int[] numbers = [1, 2, 3, 4];
+int len = numbers.length; // 长度为4
 {% endhighlight %}, <!--[]() -->
 
 
@@ -158,13 +159,69 @@ string[] y = heroes[3 .. $]; // y的值是 ["四娃", "五娃", "六娃", "七�
 1. `$`符号([opDollar](posts/tdfm-operators#opDollar))在数组环境中表示`array.length - 1`，
 所以`heroes[3 .. $]`实际上相当于`heroes[3 .. 6]`。这和python有些相似，只是使用了更明确的$符号来表示数组结尾。
 
-1. 在D语言中，类似上面的切分操作，
+1. 在D语言中，类似上面的切分操作，事实上是不需要重新分配空间拷贝数据的，
+事实上x和y里只存储了指向heroes数组上的指针。所以效率很高。
 
 
 
+**数组遍历**
+
+{% highlight d %}
+int[] a = [1, 2, 3];
+// 遍历数组中的每一个元素
+foreach (int n; a)
+{
+  writeln(a + 1); 
+}
+
+// 输出：
+// 2
+// 3
+// 4
 
 
+string[] words = ["I", "love", "you"];
+// 第一个int型的参数是当前元素的数组下标
+foreach (int i, string word; words)
+{
+  writeln(i ~ ":" ~ word);
+}
+// 输出：
+// 1:I
+// 2:love
+// 3:you
 
+{% endhighlight %} <!--[]()-->
 
+D语言有独特的循环遍历语法：foreach语句。
+
+Java和Python中也有类似的语法。这种foreach比传统的for循环更简介，并且因为不需要操作下标，不容易出错。
+
+和其他语言不同的地方是，D语言的foreach语法还支持直接修改当前元素：
+{% highlight d %}
+string[] words = ["I", "love", "you"];
+// 第一个int型的参数是当前元素的数组下标
+foreach (ref string word; words)
+{
+  if (word == "love") {
+    word = "hate"
+  }
+}
+writeln(words);
+
+// 输出：["I", "hate", "you"];
+{% endhighlight %} <!--[]()-->
+
+这是一个简洁而高效的设计。事实上`ref`在很多地方（如函数参数列表）中，都有很好的作用。
+
+另外，D也支持传统的for语句：
+
+{% highlight d %}
+int[] array = [1, 2, 3, 4, 5];
+for (int i = 0; i < array.length; ++i)
+{
+  writeln(array[i]);
+}
+{% endhighlight %}
 
 
