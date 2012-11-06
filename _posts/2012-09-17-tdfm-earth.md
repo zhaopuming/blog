@@ -222,7 +222,78 @@ for (int i = 0; i < array.length; ++i)
 {
   writeln(array[i]);
 }
+{% endhighlight %} <!--[]()-->
+
+
+## 关联数组(Associate Array)
+
+关联数组，就是key到value的映射的集合。 
+这是一种非常常用的集合，以至于很多语言内置直接支持(Python, Javascript等)。
+在Java/C#中，关联数组被称为Map(映射)。是通过类库来实现的。
+D语言在这方面的选择更接近于动态语言，通过语言机制来直接支持关联数组。
+在D语言环境中，关联数组常常简称为AA。
+
+在D语言中，AA的形式和Javascript比较相似。
+
+**AA的定义**
+
+{% highlight d %}
+
+int[string] heights = ["Michael Jordan" : 198, "Mount Everest" : 884800];
+
+{% endhighlight %} <!--[]()-->
+
+上面的代码定义了一个 `string -> int`的映射，表示事物与其高度的关联。
+这里key是string字符串，比如"Michael Jordan"，value值是高度，比如198。
+
+注意：heights这个AA的类型是 `int[string]`，可以这么理解：这是一个int型的值的集合，它的key的类型是string。
+
+而这样的声明类型和AA的调用方式也是一致的:
+
+{% highlight d %}
+int height1 = heights["Michale Jordan"];
+{% endhighlight %} <!--[]()-->
+
+**AA的使用**
+
+{% highlight d %}
+
+// 取值：
+int height2 = heights["Mont Everest"];
+
+
+// 如果使用的Key不存在，则会抛出异常
+int height3 = heights["Universe"]; // Error: Range Violation
+
+// 安全取值：
+int height4 = heights.get("MultiVers", 42); //  这里因为"Multiverse"这个key不存在，所以得到的是默认值42
+
+// 增加新的key-value对
+heights["Zhaopuming"] = 176; 
+
+
+// 检查一个key是否在集合中存在：
+if ("Michael Jordan" in heights)
+{
+  writeln("Good"); // prints "Good";
+}
+
+// 删除一对key-value
+heights.remove("Zhaopuming");
+
+// 遍历AA
+foreach (string key, int val; heights)
+{
+  writeln(key, ":", val);
+}
+
+// 更传统的遍历方式 
+string[] keys = heights.keys;
+for (int i = 0; i < keys.length; ++i) 
+{
+  string key = keys[i];
+  int height = heights[key];
+  writeln(key, height);
+}
 {% endhighlight %}
-
-
 
