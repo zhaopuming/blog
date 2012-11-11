@@ -225,9 +225,11 @@ for (int i = 0; i < array.length; ++i)
 {% endhighlight %} <!--[]()-->
 
 
+<br/>
+
 ## 关联数组(Associate Array)
 
-关联数组，就是key到value的映射的集合。 
+关联数组，是key到value的映射的集合。 
 这是一种非常常用的集合，以至于很多语言内置直接支持(Python, Javascript等)。
 在Java/C#中，关联数组被称为Map(映射)。是通过类库来实现的。
 D语言在这方面的选择更接近于动态语言，通过语言机制来直接支持关联数组。
@@ -295,5 +297,177 @@ for (int i = 0; i < keys.length; ++i)
   int height = heights[key];
   writeln(key, height);
 }
+{% endhighlight %} <!--[]()-->
+
+
+<br />
+
+## 一段小程序
+
+有了函数、数组和AA，已经可以编写一些短小的程序了。
+
+下面举一个例子：字数统计。这个程序读取一个文件，并统计其中出现的所有的词的次数，全部打印出来。
+
+
+{% highlight d %}
+#!/usr/bin/rdmd
+// file：wc.d
+
+import std.stdio;
+import std.file;
+import std.ascii;
+
+int main (string[] args)
+{
+  int[string] dict;
+
+  foreach (arg; args[1 .. $])
+  {
+    // 行数和词数
+    int lines, words;
+
+    // 直接获取字节数
+    auto chars = std.file.getSize(arg);
+
+    // 这里简单的把整个文件都读入到input这个字符串里
+    // NOTE: 对于大文件，需要使用Buffer，这里就不考虑了
+    auto input = cast(string) std.file.read(arg);
+
+    // 每个词开始的位置
+    size_t wstart;
+    // 当前的字符是否在一个词之中
+    bool inword;
+    // 遍历所有的文本的字符，依次判断
+    foreach (j, c; input)
+    {
+      // 如果遇到换行符，则将行数加一
+      if (c == '\n') ++lines;
+      // 如果遇到数字，则不做任何处理 
+      if (isDigit(c))
+      {
+      }
+      // 如果是字母，则：
+      else if (isAlpha(c))
+      {
+        // 如果当前没有词，则新开一个词
+        if (!inword)
+        {
+          wstart = j;
+          inword = true;
+          ++ words;
+        }
+      }
+      // 如果遇到其他字符（空格、其他标点等），则结束当前的词，增加词的统计
+      else if (inword)
+      {
+        auto word = input[wstart .. j];
+        dict[word]++;
+        inword = false;
+      }
+    }
+    // 处理结尾部分
+    if (inword)
+    {
+      auto w = input[wstart .. $];
+      dict[w]++;
+    }
+    // 输出每个词的出现次数，按照词的字母顺序排列
+    foreach (w; dict.keys.sort)
+    {
+      writefln("%3s %s", dict[w], w);
+    }
+    // 输出统计结果
+    writeln("   lines   words   bytes    file");
+    writefln("%8s%8s%8s%8s\n", lines, words, chars, arg);
+  }
+  return 0;
+}
+{% endhighlight %} <!--[]()-->
+
+
+上面这个例子可以简单地统计一个文本中的词频。具体的实习方法可以参考里面的注释。
+原理很简单：
+
+1. 将整个文本读入到内存中，存在`input`这个字符串中。
+1. 遍历`input`的每一个字符，如果遇到字母，则表示一个新的词开始了；如果遇到数字，则继续(如`a123`算作一个词)，如果遇到其他字符，则认为当前的词结束了。
+1. 每当结束一个词的时候，将当前的词的统计加一。这个统计存放在`dict`里，类型为`int[string]`
+1. 遍历结束后打印统计结果。
+
+注意：这是很简单的实现示例，所以并不考虑大文件，也没有考虑其他字符（不支持中文）。
+
+另外，代码中调用了一些标准库函数，他们是：
+
+1. `std.file.getSize(filename)` 计算文件的字节数。属于`std.file`模块
+1. `std.file.read` 读取文件的内容
+1. `isDidgt(char)` 判断字符是不是数字；`isAlpha(char)`判断字符是不是字母；这两个函数都是std.ascii模块中。
+1. `writefln()` 相当于C语言的printf，格式化地输出字符串。第一个参数可以提供输出的字符串的格式声明。来自std.stdio.
+
+运行这段代码，直接在后面加上要统计的文件名即可，下面的例子是统计wc.d文件本身：
+
+> ./wc.d wc.d
+
+结果是：
+
+{% highlight bash %}
+  1 Buffer
+  1 NOTE
+  4 arg
+  2 args
+  1 ascii
+  4 auto
+  1 bin
+  1 bool
+  1 bytes
+  4 c
+  1 cast
+  2 chars
+  1 d
+  5 dict
+  2 else
+  1 false
+  5 file
+  3 foreach
+  1 getSize
+  6 if
+  3 import
+  5 input
+  3 int
+  6 inword
+  1 isAlpha
+  1 isDigit
+  3 j
+  1 keys
+  4 lines
+  1 main
+  2 n
+  1 rdmd
+  1 read
+  1 return
+  6 s
+  1 size
+  1 sort
+  5 std
+  1 stdio
+  3 string
+  1 t
+  1 true
+  1 usr
+  5 w
+  1 wc
+  2 word
+  4 words
+  2 writefln
+  1 writeln
+  4 wstart
+   lines   words   bytes    file
+      72     119    1592    wc.d
 {% endhighlight %}
+
+可以看到`inword`这个词在wc.d中出现了6次
+
+
+<br />
+
+## 类
+
 
