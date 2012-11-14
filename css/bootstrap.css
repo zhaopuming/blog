@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+/*@import url(https://fonts.googleapis.com/css?family=Ubuntu);*/
 /*!
  * Bootstrap v2.1.1
  *
@@ -144,9 +144,9 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: 'Ubuntu', Tahoma, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  font-family: Arial,Helvetica,'Ubuntu',Tahoma,sans-serif;
+  font-size: 16px;
+  line-height: 22px;
   color: #333333;
   background-color: #ffffff;
 }
@@ -481,7 +481,7 @@ a:hover {
   clear: both;
 }
 p {
-  margin: 0 0 10px;
+  margin: 0 0 20px;
 }
 .lead {
   margin-bottom: 20px;

@@ -95,6 +95,7 @@
   padding: 0 2em 0 1.5em;
   padding-bottom: 1em;
   margin-bottom: 1em;
+  margin-top: 1.5em;
   border-bottom: 1px dotted #CCC;
 }
 .widget .widget-body .post-items li .post-item-detail {
@@ -109,7 +110,7 @@
   color: #777;
   margin-bottom: 0;
   margin-top: 6px;
-  font-size: 12px;
+  font-size: 13px;
 }
 .widget .widget-body .post-items li .post-item-date {
   width: 75px;
