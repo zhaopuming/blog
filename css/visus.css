@@ -154,3 +154,8 @@ hr {
 p.title {
   margin-bottom: 60px;
 }
+
+
+blockquote p {
+  color: #666;
+}
